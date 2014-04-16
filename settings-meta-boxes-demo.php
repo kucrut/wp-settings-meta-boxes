@@ -5,7 +5,7 @@
  * Description: Demonstration of Settings Page Meta Boxes plugin.
  * Author: Dzikri Aziz
  * Author URI: http://kucrut.org/
- * Version: 0.1.0
+ * Version: 0.1.1
  * License: GPL v2
  * Text Domain: settings-meta-boxes-demo
  * Depends: Settings Page Meta Boxes
@@ -194,6 +194,10 @@ class Kucrut_Settings_Meta_Boxes_Demo {
 	 * @wp_hook action admin_init
 	 */
 	public static function _register_meta_boxes() {
+		if ( defined('DOING_AJAX') && DOING_AJAX ) {
+			return;
+		}
+
 		self::$meta_boxes = new Kucrut_Settings_Meta_Boxes(
 			array(
 				'hook'            => self::$hook,

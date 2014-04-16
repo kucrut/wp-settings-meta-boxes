@@ -5,13 +5,13 @@
  * Description: A helper class to easily create custom meta boxes on plugin/theme settings page.
  * Author: Dzikri Aziz
  * Author URI: http://kucrut.org/
- * Version: 0.1.0
+ * Version: 0.1.1
  * License: GPL v2
  */
 
 class Kucrut_Settings_Meta_Boxes {
 
-	const VERSION = '0.1.0';
+	const VERSION = '0.1.1';
 
 	/**
 	 * Holds default arguments

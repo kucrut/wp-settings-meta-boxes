@@ -4,7 +4,7 @@ Donate Link: http://kucrut.org/#coffee
 Tags: settings, meta-box
 Requires at least: 3.8
 Tested up to: 3.9-RC1
-Stable tag: 0.1.0
+Stable tag: 0.1.1
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -35,5 +35,8 @@ or...
 
 
 == Changelog ==
+= 0.1.1 =
+* Fix demo plugin: Don't register meta boxes when `DOING_AJAX`
+
 = 0.1.0 =
 * Initial public release
