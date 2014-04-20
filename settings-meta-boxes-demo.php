@@ -5,7 +5,7 @@
  * Description: Demonstration of Settings Page Meta Boxes plugin.
  * Author: Dzikri Aziz
  * Author URI: http://kucrut.org/
- * Version: 0.1.1
+ * Version: 0.1.2
  * License: GPL v2
  * Text Domain: settings-meta-boxes-demo
  * Depends: Settings Page Meta Boxes
