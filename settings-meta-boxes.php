@@ -22,7 +22,7 @@ class Kucrut_Settings_Meta_Boxes {
 	protected $defaults = array(
 		'hook'            => '',
 		'default_columns' => 1,
-		'max_columns'     => 2,
+		'max_columns'     => 4,
 	);
 
 	/**
@@ -56,7 +56,7 @@ class Kucrut_Settings_Meta_Boxes {
 			return false;
 		}
 
-		$args->max_columns     = min( absint( $args->max_columns ), 2 );
+		$args->max_columns     = min( absint( $args->max_columns ), $this->defaults['max_columns'] );
 		$args->default_columns = max( min( absint( $args->default_columns ), $args->max_columns ), 1 );
 
 		$this->args = $args;
@@ -143,6 +143,12 @@ class Kucrut_Settings_Meta_Boxes {
 				</div>
 				<div id="postbox-container-2" class="postbox-container">
 					<?php do_meta_boxes( $this->args->hook, 'side', $this->args ); ?>
+				</div>
+				<div id="postbox-container-3" class="postbox-container">
+					<?php do_meta_boxes( $this->args->hook, 'column3', $this->args ); ?>
+				</div>
+				<div id="postbox-container-4" class="postbox-container">
+					<?php do_meta_boxes( $this->args->hook, 'column4', $this->args ); ?>
 				</div>
 			</div>
 			<?php wp_nonce_field( 'closedpostboxes', 'closedpostboxesnonce', false ); ?>
