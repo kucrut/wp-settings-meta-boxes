@@ -16,6 +16,8 @@ A helper class to easily create custom meta boxes on plugin/theme settings page.
 ### Usage ###
 See `settings-meta-boxes-demo.php`.
 
+Please note that `advanced` context is *NOT* supported.
+
 Development of this plugin is done on [GitHub](https://github.com/kucrut/wp-settings-meta-boxes). **Pull requests welcome**. Please see [issues reported](https://github.com/kucrut/wp-settings-meta-boxes/issues) there before going to the plugin forum.
 
 

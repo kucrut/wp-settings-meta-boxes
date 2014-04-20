@@ -17,6 +17,8 @@ No more boring settings page. Spice it up with meta boxes!
 = Usage =
 See `settings-meta-boxes-demo.php`.
 
+Please note that `advanced` context is *NOT* supported.
+
 Development of this plugin is done on [GitHub](https://github.com/kucrut/wp-settings-meta-boxes). **Pull requests welcome**. Please see [issues reported](https://github.com/kucrut/wp-settings-meta-boxes/issues) there before going to the plugin forum.
 
 

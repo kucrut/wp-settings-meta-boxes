@@ -57,7 +57,7 @@ class Kucrut_Settings_Meta_Boxes {
 		}
 
 		$args->max_columns     = min( absint( $args->max_columns ), $this->defaults['max_columns'] );
-		$args->default_columns = max( min( absint( $args->default_columns ), $args->max_columns ), 1 );
+		$args->default_columns = max( min( absint( $args->default_columns ), $args->max_columns ), $this->defaults['max_columns'] );
 
 		$this->args = $args;
 
@@ -136,10 +136,7 @@ class Kucrut_Settings_Meta_Boxes {
 			<?php $class = 'metabox-holder columns-' . get_current_screen()->get_columns(); ?>
 			<div id="dashboard-widgets" class="<?php echo esc_attr( $class ) ?>">
 				<div id="postbox-container-1" class="postbox-container">
-					<?php
-						do_meta_boxes( $this->args->hook, 'normal', $this->args );
-						do_meta_boxes( $this->args->hook, 'advanced', $this->args );
-					?>
+					<?php do_meta_boxes( $this->args->hook, 'normal', $this->args ); ?>
 				</div>
 				<div id="postbox-container-2" class="postbox-container">
 					<?php do_meta_boxes( $this->args->hook, 'side', $this->args ); ?>
