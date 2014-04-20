@@ -80,53 +80,10 @@ class Kucrut_Settings_Meta_Boxes {
 			)
 		);
 
-		add_action( 'admin_print_styles', array( __CLASS__, '_style' ) );
-
 		wp_enqueue_script( 'postbox' );
 		add_action( 'admin_print_footer_scripts', array( $this, '_script' ), 99 );
 
 		do_action( 'add_meta_boxes_' . $this->args->hook, $this->args );
-	}
-
-
-	/**
-	 * Styles
-	 *
-	 * Note that by default, we only supports two columns at max.
-	 * You will need to add some rules here if you plan to support more.
-	 *
-	 * @since   0.1.0
-	 * @wp_hook admin_print_styles
-	 */
-	public static function _style() {
-		?>
-		<style>
-			html {
-				overflow-y: scroll;
-			}
-			.metabox-holder {
-				min-width: 100%;
-			}
-			.metabox-holder.columns-1 .postbox-container {
-				min-width: 100%;
-			}
-			.metabox-holder.columns-2 .postbox-container {
-				min-width: 74%;
-				max-width: 74%;
-			}
-			.metabox-holder.columns-2 #postbox-container-2 {
-				float: right;
-				min-width: 25%;
-				max-width: 25%;
-			}
-			.metabox-holder .postbox-container .empty-container {
-				margin-bottom: 20px;
-			}
-			p.submit {
-				clear: both;
-			}
-		</style>
-		<?php
 	}
 
 
@@ -174,22 +131,22 @@ class Kucrut_Settings_Meta_Boxes {
 	 * @since 0.1.0
 	 */
 	public function display() {
-		$id    = 'metabox-' . $this->args->hook;
-		$class = 'metabox-holder columns-' . get_current_screen()->get_columns();
-
-		wp_nonce_field( 'closedpostboxes', 'closedpostboxesnonce', false );
-		wp_nonce_field( 'meta-box-order', 'meta-box-order-nonce', false );
 		?>
-		<div id="<?php echo esc_attr( $id ) ?>" class="<?php echo esc_attr( $class ) ?>">
-			<div id="postbox-container-1" class="postbox-container">
-				<?php
-					do_meta_boxes( $this->args->hook, 'normal', $this->args );
-					do_meta_boxes( $this->args->hook, 'advanced', $this->args );
-				?>
+		<div id="dashboard-widgets-wrap">
+			<?php $class = 'metabox-holder columns-' . get_current_screen()->get_columns(); ?>
+			<div id="dashboard-widgets" class="<?php echo esc_attr( $class ) ?>">
+				<div id="postbox-container-1" class="postbox-container">
+					<?php
+						do_meta_boxes( $this->args->hook, 'normal', $this->args );
+						do_meta_boxes( $this->args->hook, 'advanced', $this->args );
+					?>
+				</div>
+				<div id="postbox-container-2" class="postbox-container">
+					<?php do_meta_boxes( $this->args->hook, 'side', $this->args ); ?>
+				</div>
 			</div>
-			<div id="postbox-container-2" class="postbox-container">
-				<?php do_meta_boxes( $this->args->hook, 'side', $this->args ); ?>
-			</div>
+			<?php wp_nonce_field( 'closedpostboxes', 'closedpostboxesnonce', false ); ?>
+			<?php wp_nonce_field( 'meta-box-order', 'meta-box-order-nonce', false ); ?>
 		</div>
 		<?php
 	}
